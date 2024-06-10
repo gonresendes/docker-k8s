@@ -30,6 +30,7 @@ Each application was containerized using Docker. This process included writing D
 Example command to run and tag a Docker image:
 
 ```sh
+docker network create nginx
 docker run -d -p 7143:7143 --network nginx --name onetimesecret --network-alias onetimesecret dismantl/onetimesecret
 docker run -d -p 801:8080 -p 443:8443 --network nginx --name ejbca --network-alias ejbca keyfactor/ejbca-ce
 docker run -d -p 3000:3000 --network nginx --name wikijs --network-alias wikijs linuxserver/wikijs
