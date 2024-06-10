@@ -27,8 +27,10 @@ Kubernetes is used to manage the deployment, scalability, and operation of the c
 
 Each application was containerized using Docker. This process included writing Dockerfiles and building the Docker images.
 
-Example command to build and tag a Docker image:
+Example command to run and tag a Docker image:
 
 ```sh
-docker build -t username/repository:tag .
-docker push username/repository:tag
+docker run -d -p 7143:7143 --network nginx --name onetimesecret --network-alias onetimesecret dismantl/onetimesecret
+docker run -d -p 801:8080 -p 443:8443 --network nginx --name ejbca --network-alias ejbca keyfactor/ejbca-ce
+docker run -d -p 3000:3000 --network nginx --name wikijs --network-alias wikijs linuxserver/wikijs
+docker run -d -p 802:8080 --network nginx --name plik --network-alias plik rootgg/plik
