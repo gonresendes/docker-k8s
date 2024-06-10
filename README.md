@@ -27,12 +27,11 @@ Kubernetes is used to manage the deployment, scalability, and operation of the c
 ```
 docker network create nginx 
 ```
-After creating the nginx network, make sure you connect them all before you go for the next step.
+After creating the nginx network, make sure you connect them all before moving on to the next step..
 
 ### 2. Run the docker images
 
 ```
-docker network create nginx
 docker run -d -p 7143:7143 --network nginx --name onetimesecret --network-alias onetimesecret dismantl/onetimesecret
 docker run -d -p 801:8080 -p 443:8443 --network nginx --name ejbca --network-alias ejbca keyfactor/ejbca-ce
 docker run -d -p 3000:3000 --network nginx --name wikijs --network-alias wikijs linuxserver/wikijs
