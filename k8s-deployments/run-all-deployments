@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "Create deployments and services for the applications"
+kubectl apply -f plik-deployment.yaml
+kubectl apply -f wiki-deployment.yaml
+#kubectl apply -f ejbca-deployment.yaml
+kubectl apply -f onetimesecret-deployment.yaml
+#kubectl apply -f nginx-deployment.yaml
+
+echo "Waiting for pods to be ready..."
+kubectl wait --for=condition=available --timeout=60s deployment/plik
+kubectl wait --for=condition=available --timeout=60s deployment/wiki
+#kubectl wait --for=condition=available --timeout=60s deployment/ejbca-app
+kubectl wait --for=condition=available --timeout=60s deployment/onetimesecret
+#kubectl wait --for=condition=available --timeout=60s deployment/nginx-proxy
+
+echo "Deployments and services are ready."
+kubectl get services
