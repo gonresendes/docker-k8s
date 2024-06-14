@@ -2,7 +2,7 @@
 
 echo "Create deployments and services for the applications"
 kubectl apply -f plik-deployment.yaml
-kubectl apply -f wiki-deployment.yaml
+kubectl apply -f wikijs-deployment.yaml
 #kubectl apply -f ejbca-deployment.yaml
 kubectl apply -f onetimesecret-deployment.yaml
 #kubectl apply -f nginx-deployment.yaml

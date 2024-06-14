@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ejbca
-        image: 'keyfactor/ejbca-ce:latest'
+        image: primekey/ejbca-ce:latest
         ports:
         - containerPort: 8080
         - containerPort: 8443
@@ -45,4 +45,4 @@ spec:
       protocol: TCP
       port: 8443
       targetPort: 8443
-  type: NodePort
+  type: ClusterIP
