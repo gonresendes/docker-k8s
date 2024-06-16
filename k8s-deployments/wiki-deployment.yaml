@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wikijs
+  name: wiki-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wikijs
+      app: wiki
   template:
     metadata:
       labels:
-        app: wikijs
+        app: wiki
     spec:
       containers:
-      - name: wikijs
+      - name: wiki
         image: linuxserver/wikijs:latest
         ports:
         - containerPort: 3000
@@ -21,10 +21,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: wikijs-service
+  name: wiki-service
 spec:
   selector:
-    app: wikijs
+    app: wiki
   ports:
     - protocol: TCP
       port: 3000
